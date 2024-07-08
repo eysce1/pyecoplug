@@ -17,6 +17,7 @@ class EcoPlugSwitch(SwitchEntity):
     def __init__(self, plug):
         self._plug = plug
         self._name = plug.name
+        self._unique_id = plug.plug_data[2].decode('utf-8')
         self._state = self._plug.is_on()
 
     @property
@@ -30,6 +31,10 @@ class EcoPlugSwitch(SwitchEntity):
     @property
     def is_on(self):
         return self._state
+    
+    @property
+    def unique_id(self):
+        return self._unique_id
 
     def turn_on(self):
         self._plug.turn_on()
