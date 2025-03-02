@@ -112,6 +112,7 @@ if __name__ == '__main__':
     try:
         e = EcoDiscovery(on_add, on_remove)
         e.start()
+        time.sleep(10)
         time.sleep(180)
     finally:
         for plug in e.iterate():
